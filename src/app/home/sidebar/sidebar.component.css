@@ -1,0 +1,52 @@
+.page {
+    display: flex;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: white;
+    display: flex;
+}
+
+.options{
+    width: 26vw;
+    height: 100vh;
+    padding: 10px;
+    transition: width .5s ease-in-out;
+}
+
+
+.sidebar button{
+    width: 4vw;
+    height: 100vh;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-xxl);
+    background-color: whitesmoke;
+    color: rgb(92, 92, 92);
+    border-left: 1px solid rgb(216, 216, 216);
+    border-right: 1px solid rgb(216, 216, 216);
+    transition: width .5s ease-in-out;
+}
+
+.sidebar button:hover{
+    color: rgb(49, 49, 49);
+}
+
+
+.content {
+    width: 70vw;
+    height: 100vh;
+    background-color: white;
+    transition: width .5s ease-in-out; 
+}
+
+.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.full-width {
+    width: 100vw;
+}

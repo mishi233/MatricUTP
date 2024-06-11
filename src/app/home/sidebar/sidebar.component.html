@@ -1,0 +1,14 @@
+<div class="page">
+    <div class="sidebar">
+        <div class="options" [class.hidden]="isSidebarHidden">
+            <p>sidebar works!</p>
+        </div>
+        <button (click)="toggleSidebar()">
+            <span *ngIf="isSidebarHidden">❯</span>
+            <span *ngIf="!isSidebarHidden">❮</span>
+        </button>
+    </div>
+    <div class="content" [class.full-width]="isSidebarHidden">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Overpass';
+    src: url('assets/Overpass-VariableFont_wght.ttf');
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: whitesmoke;
+    font-family: 'Overpass';
+}
+
+:root{
+    --font-size-sm: clamp(0.8rem, 0.19vw + 0.75rem, 0.94rem);
+    --font-size-base: clamp(1rem, 0.35vw + 0.91rem, 1.25rem);
+    --font-size-md: clamp(1.25rem, 0.59vw + 1.1rem, 1.67rem);
+    --font-size-lg: clamp(1.56rem, 0.93vw + 1.33rem, 2.22rem);
+    --font-size-xl: clamp(1.95rem, 1.42vw + 1.6rem, 2.96rem);
+    --font-size-xxl: clamp(2.44rem, 2.12vw + 1.91rem, 3.95rem);
+    --font-size-xxxl: clamp(3.05rem, 3.11vw + 2.27rem, 5.26rem);
+}
