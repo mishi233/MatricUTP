@@ -1,7 +1,19 @@
 <div class="page">
     <div class="sidebar">
         <div class="options" [class.hidden]="isSidebarHidden">
-            <p>sidebar works!</p>
+            <div *ngIf="!isSidebarHidden">
+                <h2><b>Escoje las materias:</b></h2>
+                <p-multiSelect [options]="options" [selectionLimit]="15" [(ngModel)]="selectedOptions" [style]="{'width': '100%'}"
+                    placeholder="Seleccione aquí todas las materias..." [selectedItemsLabel]="'{selectedOptions.length} materias seleccionadas'"
+                    (onChange)="actualizarMaterias()"></p-multiSelect>
+
+                <p *ngIf="selectedOptions.length == 15" style="color: red;">Solo puede seleccionar hasta 15 materias</p>
+                <p *ngIf="selectedOptions.length != 15"></p>
+                
+                <div *ngFor="let selected of selectedOptions" class="materiasOption" (click)="eliminarDeSeleccionados(selected)">
+                    {{selected}} 
+                </div>
+            </div>
         </div>
         <button (click)="toggleSidebar()">
             <span *ngIf="isSidebarHidden">❯</span>

@@ -11,13 +11,15 @@
 .options{
     width: 26vw;
     height: 100vh;
-    padding: 10px;
+    padding: 10px 10px 0px 30px  ;
     transition: width .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
 
 
 .sidebar button{
-    width: 4vw;
+    width: 3vw;
     height: 100vh;
     border: none;
     cursor: pointer;
@@ -33,9 +35,8 @@
     color: rgb(49, 49, 49);
 }
 
-
 .content {
-    width: 70vw;
+    width: 74vw;
     height: 100vh;
     background-color: white;
     transition: width .5s ease-in-out; 
@@ -49,4 +50,9 @@
 
 .full-width {
     width: 100vw;
+}
+
+.materiasOption:hover{
+    text-decoration: line-through;
+    color: rgb(71, 71, 71);
 }
