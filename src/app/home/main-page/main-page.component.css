@@ -1,0 +1,73 @@
+.content{
+    padding: 20px 15px 0 25px;
+}
+
+.texto-informativo{
+    font-size: var( --font-size-base);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.subject-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.subject-card h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.course-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section {
+  width: 35%;
+}
+
+.right-section {
+  width: 65%;
+}
+
+.texto-informativo {
+  margin: 5px 0;
+}
+
+.schedules ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.schedules li {
+  margin: 3px 0;
+}
+
+::ng-deep .green .p-progressbar-value {
+  background-color: green !important;
+}
+  
+::ng-deep .lightgreen .p-progressbar-value {
+  background-color: lightgreen !important;
+}
+  
+::ng-deep .yellow .p-progressbar-value {
+  background-color: rgb(228, 228, 113) !important;
+}
+  
+::ng-deep .orange .p-progressbar-value {
+  background-color: rgb(255, 123, 0) !important;
+}
+  
+::ng-deep .red .p-progressbar-value {
+  background-color: red !important;
+}
+  

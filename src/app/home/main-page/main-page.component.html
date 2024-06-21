@@ -1,1 +1,47 @@
-<p>{{materiasAMostrar}}</p>
+<div class="content">
+    <div class="materias-content" *ngIf="materiasAMostrar && materiasAMostrar.length > 0">
+        <div>
+            <div *ngFor="let materia of materiasAMostrar" class="subject-card">
+              <h2>{{ materia.subject_name }}</h2>
+              <div *ngFor="let curso of materia.cursos" class="course-details">
+                <div class="left-section">
+                  <p class="texto-informativo">Dictada por: <strong>{{ curso.teacher_name }}</strong></p>
+                  <p-progressBar class="hola"
+                  [value]="curso.difficulty * 20" 
+                  [ngClass]="{
+                    'green': curso.difficulty <= 1,
+                    'lightgreen': curso.difficulty > 1 && curso.difficulty <= 2,
+                    'yellow': curso.difficulty > 2 && curso.difficulty <= 3,
+                    'orange': curso.difficulty > 3 && curso.difficulty <= 4,
+                    'red': curso.difficulty > 4
+                  }"> >
+                </p-progressBar>
+                </div>
+                <div class="right-section">
+                  <ul style="list-style-type: none">
+                    <li *ngFor="let horario of horarioComodo(curso.horarios)">
+                      {{ horario }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="materias-content" *ngIf="materiasAMostrar.length < 1">
+        <h1>Bienvenido a MatricUTP</h1>
+        <hr>
+        <br>
+        <p class="texto-informativo" >
+            <b>¿Qué es MatricUTP?</b><br>
+            Este sitio web tiene como propósito ayudar a los estudiantes de Ingeneria de Sistema y Computación
+            de la UTP a crear sus propios horarios, recompilando toda la informacion <i>en un solo sitio.</i>
+            <br>
+            <br>
+        <p class="texto-informativo">
+            <b>¿Como comenzar?</b><br>
+            Haz clic en el formulario de la derecha para ver todas las materias disponibles y selecciona todas 
+            aquellas tengas pensado ver. De este costado se te desplegara la información de cada una de las materias. <br>
+            <br>Después podrás generar un horario a tu gusto, configurandolo como a ti te guste más.
+    </div>
+</div>

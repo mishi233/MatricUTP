@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../enviroment/enviroment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ export class MateriasService {
 
   constructor(private http: HttpClient) {}
 
-  obtenerMaterias(listaMaterias: string[]): Observable<any> {
-    return this.http.post('api/materia/obtener', listaMaterias );
+  obtenerMaterias(listaIDMaterias: string[]): Observable<any> {
+    return this.http.post(`${environment.api_host}/api/materia/obtener`, { materias: listaIDMaterias });
   }
 
   generarHorario(listaMaterias: string[]): Observable<any> {
