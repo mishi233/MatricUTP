@@ -82,9 +82,11 @@ export class MainPageComponent {
     let cursosPosibles: any[] = [];
     let indice = -1
     materiasAMandar.forEach((materia: any) => {
-      indice++
+
       cursosSiOSi = []
       cursosPosibles = []
+      indice++
+
       materia.cursos.forEach((curso: any) => {
         if (curso.opcion == 1) {
           cursosSiOSi.push(curso)
@@ -92,6 +94,9 @@ export class MainPageComponent {
         else if (curso.opcion == 0) {
           cursosPosibles.push(curso)
         }
+
+        delete curso['difficulty'];
+        delete curso['opcion'];
       });
 
       if (cursosSiOSi.length > 0) {
@@ -104,7 +109,9 @@ export class MainPageComponent {
         materiasAMandar.splice(indice, 1)
       }
     });
+
     if (materiasAMandar.length > 0){
+      console.log(materiasAMandar)
       this.MateriasService.generarHorario(materiasAMandar).subscribe(horario => {
         console.log(horario);
       });
