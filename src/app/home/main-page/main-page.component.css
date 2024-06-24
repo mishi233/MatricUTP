@@ -2,8 +2,29 @@
     padding: 20px 15px 0 25px;
 }
 
+.generarHorarioContent{
+  width: 100%;
+  padding: 5px 20px 15px 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.generarHorariobutton{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #4998ff;
+  width: 100%;
+  color: white;
+  font-size: var(--font-size-md);
+  cursor: pointer;
+}
+
 .texto-informativo{
-    font-size: var( --font-size-base);
+  font-size: var( --font-size-base);
+  margin: 5px 0;
 }
 
 .container {
@@ -28,6 +49,7 @@
 .course-details {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px ;
 }
 
 .left-section {
@@ -35,20 +57,11 @@
 }
 
 .right-section {
-  width: 65%;
+  width: 25%;
 }
 
-.texto-informativo {
-  margin: 5px 0;
-}
-
-.schedules ul {
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-.schedules li {
-  margin: 3px 0;
+.right-section {
+  width: 40%;
 }
 
 ::ng-deep .green .p-progressbar-value {
@@ -70,4 +83,65 @@
 ::ng-deep .red .p-progressbar-value {
   background-color: red !important;
 }
+
+
   
+.option-button{
+  height: 60px;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.check{
+  background-color: rgb(123, 255, 123);
+  border: 1px solid rgb(123, 255, 123);
+  display: inline-block; 
+  animation: inOut 0.15s ease-in;
+}
+
+.lock{
+  background-color: rgb(84, 84, 255);
+  border: 1px solid rgb(84, 84, 255);
+  display: inline-block; 
+  animation: inOut2 0.15s ease-in;
+}
+
+.times{
+  background-color: rgb(255, 76, 76);
+  border: 1px solid rgb(255, 76, 76);
+  display: inline-block; 
+  animation: inOut3 0.15s ease-in;
+}
+
+@keyframes inOut {
+  0% {transform:scale(1); }
+  20% {transform:scale(1.05);}
+  40% {transform:  scale(0.95);}
+  60% {transform: scale(1.05);}
+  80% {transform:  scale(0.95);}
+  100% {transform: scale(1);}
+}
+
+@keyframes inOut2 {
+  0% {transform:scale(1); }
+  20% {transform:scale(1.05);}
+  40% {transform:  scale(0.95);}
+  60% {transform: scale(1.05);}
+  80% {transform:  scale(0.95);}
+  100% {transform: scale(1);}
+}
+
+@keyframes inOut3 {
+  0% {transform:scale(1); }
+  20% {transform:scale(1.05);}
+  40% {transform:  scale(0.95);}
+  60% {transform: scale(1.05);}
+  80% {transform:  scale(0.95);}
+  100% {transform: scale(1);}
+}
+
+.leyendaBotones{
+  justify-content: space-between;  display: flex;
+}

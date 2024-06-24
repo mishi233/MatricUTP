@@ -14,7 +14,7 @@ export class MateriasService {
     return this.http.post(`${environment.api_host}/api/materia/obtener`, { materias: listaIDMaterias });
   }
 
-  generarHorario(listaMaterias: string[]): Observable<any> {
-    return this.http.post('api/materia/horario', listaMaterias );
+  generarHorario(listaMaterias: any[]): Observable<any> {
+    return this.http.post(`${environment.api_host}/api/materia/obtener`, listaMaterias );
   }
 }

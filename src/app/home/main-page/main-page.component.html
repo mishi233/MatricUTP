@@ -1,47 +1,84 @@
 <div class="content">
-    <div class="materias-content" *ngIf="materiasAMostrar && materiasAMostrar.length > 0">
+  <div class="materias-content" *ngIf="materiasAMostrar && materiasAMostrar.length > 0">
+    <div class="generarHorarioContent">
+      <h2 style="margin-bottom: 5px;">¿Que significan los botones?</h2>
+      <div class="leyendaBotones">
         <div>
-            <div *ngFor="let materia of materiasAMostrar" class="subject-card">
-              <h2>{{ materia.subject_name }}</h2>
-              <div *ngFor="let curso of materia.cursos" class="course-details">
-                <div class="left-section">
-                  <p class="texto-informativo">Dictada por: <strong>{{ curso.teacher_name }}</strong></p>
-                  <p-progressBar class="hola"
-                  [value]="curso.difficulty * 20" 
-                  [ngClass]="{
+          <button class="option-button" class="check"><span class="pi pi-check"></span></button>
+          <i> Aceptable ver en este horario </i>
+        </div>
+        <div>
+          <button class="option-button" class="lock"><span class="pi pi-lock"></span></button>
+          <i> Sí o sí quiero ver en este horario </i>
+        </div>
+        <div>
+          <button class="option-button" class="times"><span class="pi pi-times"></span></button>
+          <i> No quiero ver en este horario </i>
+        </div>
+      </div>
+      <p>Selecciona <b>tantas materias como quieras</b>, pero solo se tendrán en cuenta las que mejor se acomoden
+        a tu horario. Si quieres ver alguna materia <b>sí o sí (<span class="pi pi-lock"></span>), pero no es
+          relevante su horario</b>, puedes seleccionar todos los horarios como obligatorios, y se escogerá el que mejor
+        se acomode a tu horario.</p>
+
+      <button (click)="generarHorario()" class="generarHorariobutton">
+        Generar Horario <i class="pi pi-search"
+          style="color: white; font-size: var(--font-size-base); font-weight: 1000;"></i>
+      </button>
+    </div>
+    <div>
+      <div *ngFor="let materia of materiasAMostrar" class="subject-card">
+        <h2>{{ materia.subject_name }}</h2>
+        <div *ngFor="let curso of materia.cursos" class="course-details">
+          <div class="left-section">
+            <p class="texto-informativo">Dictada por: <strong>{{ curso.teacher_name }}</strong></p>
+            <p-progressBar [value]="curso.difficulty * 20" [ngClass]="{
                     'green': curso.difficulty <= 1,
                     'lightgreen': curso.difficulty > 1 && curso.difficulty <= 2,
                     'yellow': curso.difficulty > 2 && curso.difficulty <= 3,
                     'orange': curso.difficulty > 3 && curso.difficulty <= 4,
                     'red': curso.difficulty > 4
                   }"> >
-                </p-progressBar>
-                </div>
-                <div class="right-section">
-                  <ul style="list-style-type: none">
-                    <li *ngFor="let horario of horarioComodo(curso.horarios)">
-                      {{ horario }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            </p-progressBar>
           </div>
+          <div class="middle-section">
+            <ul style="list-style-type: none">
+              <li *ngFor="let horario of horarioComodo(curso.horarios)">
+                {{ horario }}
+              </li>
+            </ul>
+          </div>
+          <div class="right-section">
+
+            <button class="option-button" (click)="cambiarBoton(curso)" [ngClass]="{
+              'check': curso.opcion == 0,
+              'lock': curso.opcion == 1,
+              'times': curso.opcion == 2,
+            }">
+              <span *ngIf="curso.opcion == 0" class="pi pi-check"></span>
+              <span *ngIf="curso.opcion == 1" class="pi pi-lock"></span>
+              <span *ngIf="curso.opcion == 2" class="pi pi-times"></span>
+
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="materias-content" *ngIf="materiasAMostrar.length < 1">
-        <h1>Bienvenido a MatricUTP</h1>
-        <hr>
-        <br>
-        <p class="texto-informativo" >
-            <b>¿Qué es MatricUTP?</b><br>
-            Este sitio web tiene como propósito ayudar a los estudiantes de Ingeneria de Sistema y Computación
-            de la UTP a crear sus propios horarios, recompilando toda la informacion <i>en un solo sitio.</i>
-            <br>
-            <br>
-        <p class="texto-informativo">
-            <b>¿Como comenzar?</b><br>
-            Haz clic en el formulario de la derecha para ver todas las materias disponibles y selecciona todas 
-            aquellas tengas pensado ver. De este costado se te desplegara la información de cada una de las materias. <br>
-            <br>Después podrás generar un horario a tu gusto, configurandolo como a ti te guste más.
-    </div>
+  </div>
+  <div class="materias-content" *ngIf="materiasAMostrar.length < 1">
+    <h1>Bienvenido a MatricUTP</h1>
+    <hr>
+    <br>
+    <p class="texto-informativo">
+      <b>¿Qué es MatricUTP?</b><br>
+      Este sitio web tiene como propósito ayudar a los estudiantes de Ingeneria de Sistema y Computación
+      de la UTP a crear sus propios horarios, recompilando toda la informacion <i>en un solo sitio.</i>
+      <br>
+      <br>
+    <p class="texto-informativo">
+      <b>¿Como comenzar?</b><br>
+      Haz clic en el formulario de la derecha para ver todas las materias disponibles y selecciona todas
+      aquellas tengas pensado ver. De este costado se te desplegara la información de cada una de las materias. <br>
+      <br>Después podrás generar un horario a tu gusto, configurandolo como a ti te guste más.
+  </div>
 </div>

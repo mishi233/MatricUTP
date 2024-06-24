@@ -1,5 +1,6 @@
 export const MATERIA = [
-    { value: 'HPC (High Performance Computing) I', label: 'IS9D3 - HPC (High Performance Computing) I', id: 'IS9D3' },
+    
+    { value: 'Gerencia de Proyectos', label: 'IS053 - Gerencia de Proyectos', id: 'IS053' },
     { value: 'Humanidades I', label: 'BA172 - Humanidades I', id: 'BA172' },
     { value: 'Deportes I', label: 'BU101 - Deportes I', id: 'BU101' },
     { value: 'Matemáticas 1', label: 'CB1B3 - Matemáticas 1', id: 'CB1B3' },
